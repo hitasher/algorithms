@@ -1,13 +1,6 @@
-from abc import abstractmethod
-from typing import Protocol, TypeVar, Any, MutableSequence
+from typing import MutableSequence
 
-
-class ComparableProtocol(Protocol):
-    @abstractmethod
-    def __lt__(self, other: Any) -> bool: ...
-
-
-Comparable = TypeVar('Comparable', bound=ComparableProtocol)
+from local_typing import Comparable
 
 
 def selection_sort(sequence: MutableSequence[Comparable]) -> None:
