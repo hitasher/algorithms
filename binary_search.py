@@ -1,16 +1,6 @@
-from abc import abstractmethod
-from typing import Protocol, TypeVar, Any, Sequence
+from typing import Sequence
 
-
-class ComparableProtocol(Protocol):
-    @abstractmethod
-    def __lt__(self, other: Any) -> bool: ...
-
-    @abstractmethod
-    def __eq__(self, other: Any) -> bool: ...
-
-
-Comparable = TypeVar('Comparable', bound=ComparableProtocol)
+from local_typing import Comparable
 
 
 def binary_search(sequence: Sequence[Comparable], target: Comparable) -> int | None:
