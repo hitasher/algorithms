@@ -2,19 +2,22 @@ from collections import deque
 from typing import Hashable, Iterable
 
 
+Node = Hashable
+
+
 def breadth_first_search(
-        link_dictionary: dict[Hashable, Iterable[Hashable]], start_node: Hashable, target_node: Hashable
-) -> Hashable | None:
+        link_dictionary: dict[Node, Iterable[Node]], start_node: Node, target_node: Node
+) -> Node | None:
     assert start_node in link_dictionary
-    queue = deque(link_dictionary[start_node])
-    visited_nodes = set()
+    queue: deque[Node] = deque(link_dictionary[start_node])
+    visited_nodes: set[Node] = set()
     while queue:
-        child = queue.popleft()
-        if child in visited_nodes:
+        current_node: Node = queue.popleft()
+        if current_node in visited_nodes:
             continue
-        if child == target_node:
-            return child
-        if child in link_dictionary:
-            queue += link_dictionary[child]
-        visited_nodes.add(child)
+        if current_node == target_node:
+            return current_node
+        if current_node in link_dictionary:
+            queue += link_dictionary[current_node]
+        visited_nodes.add(current_node)
     return None
