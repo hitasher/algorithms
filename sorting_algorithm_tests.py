@@ -2,6 +2,7 @@ import unittest
 from abc import ABC, abstractmethod
 from random import sample
 
+from bubble_sort import bubble_sort
 from selection_sort import selection_sort
 from quicksort import Quicksort
 
@@ -30,6 +31,11 @@ class TestSelectionSort(TestAbstractSortingAlgorithm):
 class TestQuicksort(TestAbstractSortingAlgorithm):
     def sorting_function(self, sequence) -> None:
         Quicksort.sort(sequence)
+
+
+class TestBubbleSort(TestAbstractSortingAlgorithm):
+    def sorting_function(self, sequence) -> None:
+        bubble_sort(sequence)
 
 
 del TestAbstractSortingAlgorithm
