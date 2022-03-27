@@ -18,7 +18,7 @@ class TestAbstractSortingAlgorithm(unittest.TestCase, ABC):
 
     def test_list_is_sorted_after_sorting(self):
         for _ in range(10):
-            lst: list[int] = generate_random_list(10)
+            lst: list[int] = generate_random_list(100)
             self.sorting_function(lst)
             self.assertEqual(sorted(lst), lst)
 
