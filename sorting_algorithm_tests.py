@@ -2,6 +2,7 @@ import unittest
 from abc import ABC, abstractmethod
 from random import sample
 
+from bubble_sort import bubble_sort
 from selection_sort import selection_sort
 from quicksort import Quicksort
 
@@ -17,7 +18,7 @@ class TestAbstractSortingAlgorithm(unittest.TestCase, ABC):
 
     def test_list_is_sorted_after_sorting(self):
         for _ in range(10):
-            lst: list[int] = generate_random_list(10)
+            lst: list[int] = generate_random_list(100)
             self.sorting_function(lst)
             self.assertEqual(sorted(lst), lst)
 
@@ -30,6 +31,11 @@ class TestSelectionSort(TestAbstractSortingAlgorithm):
 class TestQuicksort(TestAbstractSortingAlgorithm):
     def sorting_function(self, sequence) -> None:
         Quicksort.sort(sequence)
+
+
+class TestBubbleSort(TestAbstractSortingAlgorithm):
+    def sorting_function(self, sequence) -> None:
+        bubble_sort(sequence)
 
 
 del TestAbstractSortingAlgorithm
