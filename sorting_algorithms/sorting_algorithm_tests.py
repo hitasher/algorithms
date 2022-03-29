@@ -7,6 +7,7 @@ from .abstract_sorting_algorithm import AbstractSortingAlgorithm
 from . import (
     SelectionSort,
     BubbleSort,
+    InsertionSort,
     Quicksort
 )
 
@@ -35,6 +36,10 @@ class TestSelectionSort(TestAbstractSortingAlgorithm):
 
 class TestBubbleSort(TestAbstractSortingAlgorithm):
     sorting_algorithm_class = BubbleSort
+
+
+class TestInsertionSort(TestAbstractSortingAlgorithm):
+    sorting_algorithm_class = InsertionSort
 
 
 class TestQuicksort(TestAbstractSortingAlgorithm):
